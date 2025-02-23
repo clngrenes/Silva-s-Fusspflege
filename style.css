@@ -1,0 +1,110 @@
+/* HTML- und Body-Reset für volle Höhe */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Body als Flex-Container, um den Footer am unteren Rand zu fixieren */
+  body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffe4e1;  /* Helles Rosa */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Header-Bereich */
+  header {
+    background-color: #ff69b4; /* Hot Pink */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  header .logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main soll den restlichen Platz einnehmen */
+  main {
+    flex: 1;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff0f5;  /* Lavendelblush, ein sehr helles Rosa */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Inhalt der Hauptseite */
+  .hero {
+    text-align: center;
+  }
+  
+  .description {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: justify;
+  }
+  
+  /* CTA Button */
+  .cta-button {
+    display: inline-block;
+    background-color: #ff1493; /* Deep Pink */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #e60073;
+    transform: scale(1.05);
+  }
+  
+  /* Telefonnummer unter dem Button */
+  .phone-number {
+    margin-top: 25px;
+    font-size: 1em;
+  }
+  
+  /* Footer-Bereich */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ff69b4;
+    color: #fff;
+    margin-top: 40px;
+  }
+  
+  /* Responsive Anpassungen */
+  @media (max-width: 600px) {
+    header .logo {
+      font-size: 2em;
+    }
+    .cta-button {
+      padding: 12px 25px;
+      font-size: 1em;
+    }
+  }
