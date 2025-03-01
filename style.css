@@ -1,0 +1,148 @@
+/* Volle Höhe und Reset */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Fonts einbinden */
+@font-face {
+  font-family: 'TAN Pearl';
+  src: url('https://fonts.cdnfonts.com/s/31630/TanPearl-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bimbo';
+  src: url('https://fonts.cdnfonts.com/s/31630/Bimbo-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Basis-Styles */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: 'DM Sans', sans-serif;
+  background-color: #F8F8F8;
+  color: #0D080F;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #E2C8FE;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo-img {
+  max-width: 300px;
+  height: auto;
+}
+
+.logo-text {
+  font-family: 'TAN Pearl', cursive;
+  font-size: 2.5em;
+  margin: 10px 0 0 0;
+}
+
+/* Navigation */
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  font-family: 'Bimbo', sans-serif;
+  color: #0D080F;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hauptinhalt */
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(13, 8, 15, 0.1);
+}
+
+.hero {
+  text-align: center;
+}
+
+.description {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: justify;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  background-color: #0D080F;
+  color: #FFFFFF;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #333333;
+  transform: scale(1.05);
+}
+
+/* Telefonnummer */
+.phone-number {
+  margin-top: 25px;
+  font-size: 1em;
+}
+
+.phone-number a {
+  color: #0D080F;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.phone-number a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #0D080F;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 600px) {
+  .logo-text {
+    font-size: 2em;
+  }
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+}
