@@ -150,11 +150,12 @@ nav a:hover {
 /* LANDING PAGE (Hero) */
 #landing {
   height: auto;
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 200px); /* Reduziert für mehr Platz am Fußende */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 30px;
+  padding-bottom: 50px; /* Mehr Platz nach unten */
+  margin-bottom: 20px;
 }
 .hero {
   display: flex;
@@ -313,6 +314,8 @@ footer {
   padding: 15px;
   margin-top: auto; /* Drückt den Footer nach unten */
   width: 100%;
+  position: relative; /* Stellt sicher, dass der Footer über anderem Inhalt liegt */
+  z-index: 10;
 }
 
 /* RESPONSIVE ANPASSUNGEN */
@@ -347,6 +350,29 @@ footer {
   .silva-img {
     max-width: 200px;
   }
+  
+  #landing {
+    min-height: auto; /* Kein Mindesthöhe auf Mobilgeräten */
+    height: auto;
+    padding-bottom: 30px;
+    margin-bottom: 60px; /* Mehr Abstand zum Footer */
+  }
+  
+  main, .section {
+    flex: 0 1 auto; /* Verhindert übermäßiges Strecken */
+  }
+  
+  /* Fixiert den sticky Footer besser auf mobilen Geräten */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Erzwinge Abstand vor dem Footer */
+  .section:last-of-type {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -374,5 +400,14 @@ footer {
   .section {
     padding: 15px 10px;
     width: calc(100% - 20px);
+  }
+  
+  #landing {
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
+  
+  footer {
+    margin-top: 30px; /* Expliziten Abstand hinzufügen */
   }
 }
