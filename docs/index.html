@@ -1,43 +1,105 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Silva's Fußpflege</title>
   <!-- Google Fonts: DM Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
   <!-- CSS einbinden -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header: Logo + Hamburger Icon -->
   <header>
     <div class="header-container">
-      <img src="images/logo.png" alt="Silva's Fußpflege Logo" class="logo-img">
-      <h1 class="logo-text">Silva's Fußpflege</h1>
+      <img src="images/logo.png" alt="Silva's Fußpflege Logo" class="logo-img" />
     </div>
-    <nav>
-      <a href="impressum.html">Impressum</a>
+    <!-- Hamburger Icon (Mobile/Tablet) -->
+    <div class="hamburger" onclick="toggleMobileNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-menu">
+      <a href="javascript:void(0)" onclick="showSection('landing')">Startseite</a>
+      <a href="javascript:void(0)" onclick="showSection('about')">Über mich</a>
+      <a href="javascript:void(0)" onclick="showSection('impressum')">Impressum</a>
     </nav>
   </header>
-  <main>
-    <section class="hero">
-      <p class="description">
-        Ich bin Silva Ajrian, die Inhaberin von Silva’s Fußpflege und eine dermatologisch geprüfte Fußpflegerin. Mit meiner mobilen Fußpflege biete ich Ihnen individuelle Behandlungen direkt bei Ihnen zu Hause im Raum Kreuztal und Umgebung an.
 
-        <br><br>
-        Egal, ob es um eine allgemeine Fußpflege oder eine entspannende Fußmassage geht – ich sorge mit höchster Sorgfalt und Expertise dafür, dass sich Ihre Füße rundum wohlfühlen.
+  <!-- Landing Section (vollbild) -->
+  <section id="landing" class="section fade-in">
+    <div class="hero">
+      <!-- Bild-Container: Reihenfolge wird per CSS je nach Gerät geregelt -->
+      <div class="hero-image-container mobile-first">
+        <div class="circle-bg"></div>
+        <img src="images/silva.png" alt="Silva" class="silva-img" />
+      </div>
+      <!-- Text-Container -->
+      <div class="hero-text mobile-second">
+        <h2>Mobile Fußpflege</h2>
+        <p class="subtitle">in Kreuztal und Umgebung</p>
+        <p class="cta-call">
+          Termin vereinbaren unter:
+          <a href="tel:015144906854" class="cta-phone">0151 44906854</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-Ich freue mich darauf, Sie bei der Pflege Ihrer Füße zu unterstützen.
-
-        <br><br>
-        Vereinbaren Sie einen Termin und erleben Sie, wie angenehm professionelle Fußpflege sein kann.
+  <!-- Über mich Section -->
+  <section id="about" class="section fade-in" style="display: none;">
+    <div class="about-section">
+      <h2>Über mich</h2>
+      <p>
+        Ich bin Silva Ajrian, die Inhaberin von Silva’s Fußpflege und eine dermatologisch geprüfte Fußpflegerin.
+        Mit meiner mobilen Fußpflege biete ich Ihnen individuelle Behandlungen direkt bei Ihnen zu Hause im Raum Kreuztal und Umgebung an.
       </p>
-      <a href="booking.html" class="cta-button">Jetzt Termin vereinbaren</a>
-      <p class="phone-number">Erreichbar unter: <a href="tel:015144906854">0151/44906854</a></p>
-    </section>
-  </main>
+      <p>
+        Egal, ob es um eine allgemeine Fußpflege oder eine entspannende Fußmassage geht – ich sorge mit höchster Sorgfalt und Expertise dafür,
+        dass sich Ihre Füße rundum wohlfühlen.
+      </p>
+      <p>
+        Ich freue mich darauf, Sie bei der Pflege Ihrer Füße zu unterstützen. Vereinbaren Sie einen Termin und erleben Sie, wie angenehm
+        professionelle Fußpflege sein kann.
+      </p>
+    </div>
+  </section>
+
+  <!-- Impressum Section -->
+  <section id="impressum" class="section fade-in" style="display: none;">
+    <div class="impressum-section">
+      <h2>Impressum</h2>
+      <p>
+        Inhaberin: Silva Ajrian<br>
+        Musterstraße 123, 12345 Kreuztal<br>
+        Telefon: <a href="tel:015144906854">0151 44906854</a><br>
+        E-Mail: <a href="mailto:info@silvas-fusspflege.de">info@silvas-fusspflege.de</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Silva's Fußpflege</p>
   </footer>
+
+  <!-- JavaScript einbinden -->
+  <script src="script.js"></script>
+  <!-- Inline Script zur Steuerung der mobilen Navigation -->
+  <script>
+    function toggleMobileNav() {
+      const nav = document.querySelector('.nav-menu');
+      nav.classList.toggle('nav-active');
+      
+      // Animation für Hamburger-Icon (X-Form)
+      const hamburger = document.querySelector('.hamburger');
+      hamburger.classList.toggle('active');
+      
+      // Verhindere Scrollen wenn Menü offen
+      document.body.classList.toggle('menu-open');
+    }
+  </script>
 </body>
 </html>

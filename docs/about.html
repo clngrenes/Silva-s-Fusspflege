@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Über mich - Silva's Fußpflege</title>
+  <!-- Google Fonts: DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- CSS einbinden -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="images/logo.png" alt="Silva's Fußpflege Logo" class="logo-img" />
+      <h1 class="logo-text">Silva's Fußpflege</h1>
+    </div>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="about.html">Über mich</a>
+      <!-- Impressum per Toggle -->
+      <a href="javascript:void(0)" onclick="toggleImpressum()">Impressum</a>
+    </nav>
+  </header>
+
+  <!-- Impressum (wird per JavaScript ein-/ausgeblendet) -->
+  <section id="impressum" class="fade-in" style="display: none;">
+    <h2>Impressum</h2>
+    <p>
+      <!-- Hier kannst du deine Impressumsdaten einfügen -->
+      Inhaberin: Silva Ajrian<br/>
+      Musterstraße 123, 12345 Kreuztal<br/>
+      Telefon: <a href="tel:015144906854">0151/44906854</a><br/>
+      E-Mail: <a href="mailto:info@silvas-fusspflege.de">info@silvas-fusspflege.de</a>
+    </p>
+  </section>
+
+  <main class="fade-in">
+    <section class="about-section">
+      <h2>Über mich</h2>
+      <p>
+        <!-- Hier kannst du zusätzliche Informationen über dich einfügen -->
+        Herzlich willkommen! Mein Name ist Silva Ajrian. Ich habe meine Leidenschaft für 
+        Fußpflege zum Beruf gemacht und biete seit mehreren Jahren eine mobile Fußpflege 
+        im Raum Kreuztal und Umgebung an. Mein Ziel ist es, jedem Kunden eine 
+        angenehme und hochwertige Behandlung zu ermöglichen – direkt in den eigenen vier Wänden. 
+      </p>
+      <p>
+        Durch meine Ausbildung zur dermatologisch geprüften Fußpflegerin 
+        und regelmäßige Fortbildungen bleibe ich stets auf dem neuesten Stand. 
+        So kann ich Ihnen moderne Behandlungsmethoden bieten und individuell auf 
+        Ihre Bedürfnisse eingehen. 
+      </p>
+      <p>
+        Ich freue mich, Sie persönlich kennenzulernen und Ihre Füße zu verwöhnen!
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Silva's Fußpflege</p>
+  </footer>
+
+  <!-- JavaScript einbinden -->
+  <script src="script.js"></script>
+</body>
+</html>

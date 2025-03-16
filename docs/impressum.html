@@ -4,48 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impressum - Silva's Fußpflege</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <h1>Impressum</h1>
-    <nav>
-      <a href="index.html">Home</a>
+    <div class="header-container">
+      <!-- Logo -->
+      <img src="images/logo.png" alt="Silva's Fußpflege Logo" class="logo-img" />
+
+      <!-- Hamburger-Button -->
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a href="index.html">Startseite</a>
+      <a href="about.html">Über mich</a>
+      <a href="impressum.html">Impressum</a>
     </nav>
   </header>
-  <main class="impressum-content">
-    <p>
-      Angaben gemäß § 5 TMG:<br>
-      Silva's Fußpflege<br>
-      Inhaberin: Silva Ajrian<br>
-      In der Bockelbach 17<br>
-      57223 Kreuztal<br>
-      <br>
-      Kontakt:<br>
-      Telefon: 0151/44906854<br>
-      E-Mail: silva.ajrian80@googlemail.com<br>
-      <br>
-      <br>
-      Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
-      Silva Ajrian<br>
-      <br>
-      Dieses Impressum gilt auch für unsere Social-Media-Präsenzen.
-    </p>
-    <p>
-      Die bereitgestellten Informationen wurden mit größter Sorgfalt erstellt. Trotz sorgfältiger
-      inhaltlicher Kontrolle übernehmen wir keine Haftung für die Richtigkeit, Vollständigkeit und
-      Aktualität der bereitgestellten Inhalte. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für
-      eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
-    </p>
-    <p>
-      Alle Inhalte und Texte auf dieser Website sind urheberrechtlich geschützt. Die Vervielfältigung,
-      Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts
-      bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-    </p>
+
+  <!-- HAUPTINHALT -->
+  <main class="fade-in">
+    <section class="impressum-section">
+      <h2>Impressum</h2>
+      <p>
+        Angaben gemäß § 5 TMG:<br>
+        Silva's Fußpflege<br>
+        Inhaberin: Silva Ajrian<br>
+        In der Bockelbach 17<br>
+        57223 Kreuztal<br>
+        Kontakt:<br>
+        Telefon: <a href="tel:015144906854">0151/44906854</a><br>
+        E-Mail: <a href="mailto:silva.ajrian80@googlemail.com">silva.ajrian80@googlemail.com</a><br>
+        <br>
+        Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+        Silva Ajrian<br>
+        <br>
+        Dieses Impressum gilt auch für unsere Social-Media-Präsenzen.
+      </p>
+      <p>
+        Die bereitgestellten Informationen wurden mit größter Sorgfalt erstellt. Trotz sorgfältiger
+        inhaltlicher Kontrolle übernehmen wir keine Haftung für die Richtigkeit, Vollständigkeit und
+        Aktualität der bereitgestellten Inhalte. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für
+        eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+      </p>
+      <p>
+        Alle Inhalte und Texte auf dieser Website sind urheberrechtlich geschützt. Die Vervielfältigung,
+        Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts
+        bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+      </p>
+    </section>
   </main>
+
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Silva's Fußpflege</p>
   </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,148 +1,276 @@
-/* Volle Höhe und Reset */
+/* Basis-Reset und Grundlayout */
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
-}
-
-/* Custom Fonts einbinden */
-@font-face {
-  font-family: 'TAN Pearl';
-  src: url('https://fonts.cdnfonts.com/s/31630/TanPearl-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Bimbo';
-  src: url('https://fonts.cdnfonts.com/s/31630/Bimbo-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Basis-Styles */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  box-sizing: border-box;
   font-family: 'DM Sans', sans-serif;
   background-color: #F8F8F8;
   color: #0D080F;
-  line-height: 1.6;
 }
 
-/* Header */
+/* Fade-In-Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* HEADER: Standardlayout, Desktop-Anpassung */
 header {
   background-color: #E2C8FE;
   padding: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
+@media (min-width: 769px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px; /* Mehr Raum für Desktop */
+  }
+  .nav-menu {
+    display: flex !important;
+  }
+}
 .header-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
-
 .logo-img {
-  max-width: 300px;
+  max-width: 200px;
+  width: 100%;
   height: auto;
 }
-
 .logo-text {
-  font-family: 'TAN Pearl', cursive;
-  font-size: 2.5em;
-  margin: 10px 0 0 0;
-}
-
-/* Navigation */
-nav {
+  font-size: 2em;
   margin-top: 10px;
 }
 
-nav a {
-  font-family: 'Bimbo', sans-serif;
-  color: #0D080F;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 0 10px;
+/* Hamburger Icon nur für Mobile/Tablet */
+.hamburger {
+  display: none;
+}
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .nav-menu.nav-active {
+    display: flex;
+    background: #E2C8FE;
+    padding: 10px 0;
+  }
 }
 
+/* NAVIGATION */
+nav {
+  margin-top: 15px;
+}
+nav a {
+  text-decoration: none;
+  color: #0D080F;
+  font-weight: 700;
+  margin: 0 10px;
+}
 nav a:hover {
   text-decoration: underline;
 }
 
-/* Hauptinhalt */
-main {
-  flex: 1;
-  max-width: 900px;
+/* Allgemeine Section-Styles */
+.section {
+  max-width: 1200px;
   margin: 40px auto;
+  padding: 20px;
+}
+
+/* LANDING PAGE (Hero) */
+#landing {
+  height: 100vh; /* Vollbild */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 2px 8px rgba(13, 8, 15, 0.1);
+  width: 100%;
+}
+.hero-text {
+  flex: 1 1 400px;
+  margin-right: 20px;
+}
+.hero-text h2 {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+}
+.subtitle {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  color: #555;
+}
+.cta-call {
+  font-size: 1.2em;
+}
+.cta-phone {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff4081, #ff80ab);
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 1.3em;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+  font-weight: 700;
+}
+.cta-phone:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #ff80ab, #ff4081);
+}
+.hero-image-container {
+  position: relative;
+  flex: 1 1 300px;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.circle-bg {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background-color: #d6c4f8;
+  border-radius: 50%;
+  right: 0;
+  top: 50%;
+  transform: translate(30%, -50%);
+  z-index: 1;
+}
+.silva-img {
+  position: relative;
+  z-index: 2;
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* HERO-Bereich: Reihenfolge je nach Gerät */
+@media (min-width: 769px) {
+  .hero-text {
+    order: 1;
+    text-align: left;
+  }
+  .hero-image-container {
+    order: 2;
+  }
+}
+@media (max-width: 768px) {
+  .hero-image-container {
+    order: 1;
+  }
+  .hero-text {
+    order: 2;
+    text-align: center;
+  }
+}
+
+/* ÜBER MICH SECTION */
+.about-section {
+  background: #fff;
   padding: 30px;
-  background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(13, 8, 15, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+}
+.about-section h2 {
+  margin-top: 0;
+}
+.about-section p {
+  line-height: 1.6;
 }
 
-.hero {
-  text-align: center;
+/* IMPRESSUM SECTION */
+.impressum-section {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(13, 8, 15, 0.1);
+}
+.impressum-section h2 {
+  margin-top: 0;
+}
+.impressum-section p {
+  line-height: 1.6;
 }
 
-.description {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  padding: 10px;
-  text-align: justify;
-}
-
-/* CTA Button */
-.cta-button {
-  display: inline-block;
-  background-color: #0D080F;
-  color: #FFFFFF;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1.2em;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #333333;
-  transform: scale(1.05);
-}
-
-/* Telefonnummer */
-.phone-number {
-  margin-top: 25px;
-  font-size: 1em;
-}
-
-.phone-number a {
-  color: #0D080F;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.phone-number a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
+/* FOOTER */
 footer {
-  background-color: #0D080F;
-  color: #FFFFFF;
+  background: #0D080F;
+  color: #fff;
   text-align: center;
   padding: 20px;
 }
 
-/* Responsive Anpassungen */
-@media (max-width: 600px) {
-  .logo-text {
-    font-size: 2em;
+/* RESPONSIVE ANPASSUNGEN */
+@media (max-width: 768px) {
+  .impressum-section,
+  .about-section {
+    padding: 20px;
+    margin: 10px;
   }
-  .cta-button {
-    padding: 12px 25px;
-    font-size: 1em;
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+  .logo-text {
+    font-size: 1.5em;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .circle-bg {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .impressum-section,
+  .about-section {
+    padding: 15px;
+    margin: 5px;
+  }
+  header {
+    padding: 15px;
+  }
+  .logo-img {
+    max-width: 150px;
   }
 }
