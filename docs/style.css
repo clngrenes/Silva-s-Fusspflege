@@ -6,6 +6,18 @@ html, body {
   font-family: 'DM Sans', sans-serif;
   background-color: #F8F8F8;
   color: #0D080F;
+  height: 100%; /* Volle Höhe für Sticky Footer */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Mindesthöhe für Viewport */
+}
+
+/* Hauptcontainer, der flexibel wachsen soll */
+main, .section {
+  flex: 1;
 }
 
 /* Fade-In-Animation */
@@ -26,15 +38,18 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 @media (min-width: 769px) {
   header {
     flex-direction: row;
-    justify-content: space-between;
-    padding: 20px 40px; /* Mehr Raum für Desktop */
+    justify-content: center;
+    padding: 20px 40px;
   }
   .nav-menu {
     display: flex !important;
+    position: absolute;
+    right: 40px;
   }
 }
 .header-container {
@@ -43,23 +58,35 @@ header {
   align-items: center;
 }
 .logo-img {
-  max-width: 200px;
+  max-width: 180px;
   width: 100%;
   height: auto;
 }
 .logo-text {
-  font-size: 2em;
-  margin-top: 10px;
+  display: none;
 }
 
-/* Hamburger Icon nur für Mobile/Tablet */
+/* Hamburger Icon für Mobile/Tablet */
 .hamburger {
   display: none;
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  z-index: 100;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin: 6px 0;
+  background-color: #0D080F;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 @media (max-width: 768px) {
   .hamburger {
     display: block;
-    cursor: pointer;
   }
   .nav-menu {
     display: none;
@@ -67,12 +94,33 @@ header {
     width: 100%;
     text-align: center;
     margin-top: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+    background: #E2C8FE;
+    padding: 15px 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   }
   .nav-menu.nav-active {
     display: flex;
-    background: #E2C8FE;
-    padding: 10px 0;
   }
+}
+
+/* Hamburger Icon Animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Verhindere Scrollen bei offenem Menü */
+body.menu-open {
+  overflow: hidden;
 }
 
 /* NAVIGATION */
@@ -83,7 +131,9 @@ nav a {
   text-decoration: none;
   color: #0D080F;
   font-weight: 700;
-  margin: 0 10px;
+  margin: 0 15px;
+  padding: 8px 0;
+  display: inline-block;
 }
 nav a:hover {
   text-decoration: underline;
@@ -92,16 +142,19 @@ nav a:hover {
 /* Allgemeine Section-Styles */
 .section {
   max-width: 1200px;
-  margin: 40px auto;
+  margin: 20px auto;
   padding: 20px;
+  width: calc(100% - 40px); /* Sorgt für gleichmäßigen Abstand links und rechts */
 }
 
 /* LANDING PAGE (Hero) */
 #landing {
-  height: 100vh; /* Vollbild */
+  height: auto;
+  min-height: calc(100vh - 150px);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 30px;
 }
 .hero {
   display: flex;
@@ -109,18 +162,20 @@ nav a:hover {
   align-items: center;
   justify-content: space-between;
   background: #fff;
-  border-radius: 8px;
-  padding: 40px;
+  border-radius: 15px;
+  padding: 30px;
   box-shadow: 0 2px 8px rgba(13, 8, 15, 0.1);
   width: 100%;
+  margin: 0; /* Entferne die Margin und verwende den Abstand der Section */
 }
 .hero-text {
   flex: 1 1 400px;
-  margin-right: 20px;
+  margin: 15px;
 }
 .hero-text h2 {
   font-size: 2.2em;
   margin-bottom: 10px;
+  color: #0D080F;
 }
 .subtitle {
   font-size: 1.3em;
@@ -129,10 +184,11 @@ nav a:hover {
 }
 .cta-call {
   font-size: 1.2em;
+  margin-top: 25px;
 }
 .cta-phone {
   display: inline-block;
-  background: linear-gradient(45deg, #ff4081, #ff80ab);
+  background: linear-gradient(45deg, #9b5de5, #E2C8FE);
   padding: 12px 28px;
   border: none;
   border-radius: 30px;
@@ -141,10 +197,12 @@ nav a:hover {
   text-decoration: none;
   transition: transform 0.3s, background 0.3s;
   font-weight: 700;
+  margin-top: 10px;
 }
 .cta-phone:hover {
   transform: scale(1.1);
-  background: linear-gradient(45deg, #ff80ab, #ff4081);
+  background: linear-gradient(45deg, #E2C8FE, #9b5de5);
+  box-shadow: 0 4px 12px rgba(155, 93, 229, 0.3);
 }
 .hero-image-container {
   position: relative;
@@ -153,7 +211,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin: 15px;
 }
 .circle-bg {
   position: absolute;
@@ -170,8 +228,10 @@ nav a:hover {
   position: relative;
   z-index: 2;
   max-width: 250px;
+  width: 100%;
   height: auto;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 /* HERO-Bereich: Reihenfolge je nach Gerät */
@@ -187,10 +247,18 @@ nav a:hover {
 @media (max-width: 768px) {
   .hero-image-container {
     order: 1;
+    margin-bottom: 15px;
   }
   .hero-text {
     order: 2;
     text-align: center;
+  }
+  .hero {
+    padding: 20px 15px;
+    flex-direction: column;
+    text-align: center;
+    margin: 0; /* Konsistenter Abstand */
+    border-radius: 10px;
   }
 }
 
@@ -198,13 +266,14 @@ nav a:hover {
 .about-section {
   background: #fff;
   padding: 30px;
-  border-radius: 8px;
+  border-radius: 15px;
   box-shadow: 0 2px 8px rgba(13, 8, 15, 0.1);
   margin: 20px auto;
   max-width: 800px;
 }
 .about-section h2 {
   margin-top: 0;
+  color: #0D080F;
 }
 .about-section p {
   line-height: 1.6;
@@ -214,16 +283,26 @@ nav a:hover {
 .impressum-section {
   background: #fff;
   padding: 30px;
-  border-radius: 8px;
+  border-radius: 15px;
   margin: 20px auto;
   max-width: 800px;
   box-shadow: 0 2px 8px rgba(13, 8, 15, 0.1);
 }
 .impressum-section h2 {
   margin-top: 0;
+  color: #0D080F;
 }
 .impressum-section p {
   line-height: 1.6;
+}
+/* Links im Impressum schwarz machen */
+.impressum-section a {
+  color: #0D080F;
+  font-weight: 600;
+  text-decoration: none;
+}
+.impressum-section a:hover {
+  text-decoration: underline;
 }
 
 /* FOOTER */
@@ -231,7 +310,9 @@ footer {
   background: #0D080F;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
+  margin-top: auto; /* Drückt den Footer nach unten */
+  width: 100%;
 }
 
 /* RESPONSIVE ANPASSUNGEN */
@@ -240,24 +321,31 @@ footer {
   .about-section {
     padding: 20px;
     margin: 10px;
+    border-radius: 10px;
   }
   nav a {
     display: block;
-    margin: 5px 0;
-  }
-  .logo-text {
-    font-size: 1.5em;
+    margin: 8px 0;
+    padding: 10px;
   }
   .hero {
     flex-direction: column;
     text-align: center;
+    margin: 0; /* Konsistenter Abstand */
+    border-radius: 10px;
   }
   .hero-text {
-    margin-right: 0;
-    margin-bottom: 20px;
+    margin: 10px 5px;
+  }
+  .hero-image-container {
+    margin: 0;
   }
   .circle-bg {
-    display: none;
+    width: 250px;
+    height: 300px;
+  }
+  .silva-img {
+    max-width: 200px;
   }
 }
 
@@ -272,5 +360,19 @@ footer {
   }
   .logo-img {
     max-width: 150px;
+  }
+  .hero-text h2 {
+    font-size: 1.8em;
+  }
+  .subtitle {
+    font-size: 1.1em;
+  }
+  .cta-phone {
+    font-size: 1.1em;
+    padding: 10px 20px;
+  }
+  .section {
+    padding: 15px 10px;
+    width: calc(100% - 20px);
   }
 }

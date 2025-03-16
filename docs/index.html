@@ -22,9 +22,9 @@
       <span></span>
     </div>
     <nav class="nav-menu">
-      <a href="javascript:void(0)" onclick="showSection('landing')">Startseite</a>
-      <a href="javascript:void(0)" onclick="showSection('about')">Über mich</a>
-      <a href="javascript:void(0)" onclick="showSection('impressum')">Impressum</a>
+      <a href="javascript:void(0)" onclick="showSection('landing'); closeMobileNav();">Startseite</a>
+      <a href="javascript:void(0)" onclick="showSection('about'); closeMobileNav();">Über mich</a>
+      <a href="javascript:void(0)" onclick="showSection('impressum'); closeMobileNav();">Impressum</a>
     </nav>
   </header>
 
@@ -34,7 +34,7 @@
       <!-- Bild-Container: Reihenfolge wird per CSS je nach Gerät geregelt -->
       <div class="hero-image-container mobile-first">
         <div class="circle-bg"></div>
-        <img src="images/silva.png" alt="Silva" class="silva-img" />
+        <img src="images/silva.png" alt="Silva" class="silva-img" onerror="this.src='https://placehold.co/250x350/d6c4f8/333?text=Silva'" />
       </div>
       <!-- Text-Container -->
       <div class="hero-text mobile-second">
@@ -72,10 +72,12 @@
     <div class="impressum-section">
       <h2>Impressum</h2>
       <p>
+        Silva's Fußpflege<br>
         Inhaberin: Silva Ajrian<br>
-        Musterstraße 123, 12345 Kreuztal<br>
+        In der Bockelbach 17<br>
+        57223 Kreuztal<br>
         Telefon: <a href="tel:015144906854">0151 44906854</a><br>
-        E-Mail: <a href="mailto:info@silvas-fusspflege.de">info@silvas-fusspflege.de</a>
+        E-Mail: <a href="mailto:info@silvas-fusspflege.de">silva.ajrian80@googlemail.com</a>
       </p>
     </div>
   </section>
@@ -100,6 +102,29 @@
       // Verhindere Scrollen wenn Menü offen
       document.body.classList.toggle('menu-open');
     }
+    
+    function closeMobileNav() {
+      const nav = document.querySelector('.nav-menu');
+      nav.classList.remove('nav-active');
+      
+      const hamburger = document.querySelector('.hamburger');
+      hamburger.classList.remove('active');
+      
+      document.body.classList.remove('menu-open');
+    }
+    
+    // Bildladefehler-Behandlung
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.addEventListener('error', function() {
+          if (!this.getAttribute('data-error-handled')) {
+            this.setAttribute('data-error-handled', 'true');
+            console.log('Bildfehler behandelt für: ' + this.src);
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
