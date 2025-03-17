@@ -81,7 +81,7 @@ nav a:hover {
 
 /* Smaller Silva image */
 .silva-img {
-  max-width: 200px; /* Reduced from original size */
+  max-width: 400px; /* Reduced from original size */
   height: auto;
   border-radius: 8px;
 }
