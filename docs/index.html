@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Ich bin Silva Ajrian, die Inhaberin von Silvas Fußpflege und eine dermatologisch geprüfte Fußpflegerin.
+  Mit meiner mobilen Fußpflege biete ich Ihnen individuelle Behandlungen direkt bei Ihnen zu Hause im Raum Kreuztal und Umgebung an.">
   <title>Silva's Fußpflege</title>
   <!-- Google Fonts: DM Sans -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
@@ -10,30 +12,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header: Logo + Hamburger Icon -->
+  <!-- Header: Logo + Navigation -->
   <header>
     <div class="header-container">
-      <img src="images/logo.png" alt="Silva's Fußpflege Logo" class="logo-img" />
+      <img src="images/logo.svg" alt="Silvas Fußpflege Logo" class="logo-img" />
     </div>
-    <!-- Hamburger Icon (Mobile/Tablet) -->
-    <div class="hamburger" onclick="toggleMobileNav()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav class="nav-menu">
-      <a href="javascript:void(0)" onclick="showSection('landing'); closeMobileNav();">Startseite</a>
-      <a href="javascript:void(0)" onclick="showSection('about'); closeMobileNav();">Über mich</a>
-      <a href="javascript:void(0)" onclick="showSection('impressum'); closeMobileNav();">Impressum</a>
-    </nav>
+    <!-- Navigation removed per request -->
   </header>
 
-  <!-- Landing Section (vollbild) -->
+  <!-- About Me Section directly under header -->
+
+  <!-- Landing Section -->
   <section id="landing" class="section fade-in">
     <div class="hero">
-      <!-- Bild-Container: Reihenfolge wird per CSS je nach Gerät geregelt -->
+      <!-- Bild-Container -->
       <div class="hero-image-container mobile-first">
-        <div class="circle-bg"></div>
         <img src="images/Silva.png" alt="Silva" class="silva-img" onerror="this.src='https://placehold.co/250x350/d6c4f8/333?text=Silva'" />
       </div>
       <!-- Text-Container -->
@@ -48,83 +41,27 @@
     </div>
   </section>
 
-  <!-- Über mich Section -->
-  <section id="about" class="section fade-in" style="display: none;">
-    <div class="about-section">
-      <h2>Über mich</h2>
-      <p>
-        Ich bin Silva Ajrian, die Inhaberin von Silva’s Fußpflege und eine dermatologisch geprüfte Fußpflegerin.
-        Mit meiner mobilen Fußpflege biete ich Ihnen individuelle Behandlungen direkt bei Ihnen zu Hause im Raum Kreuztal und Umgebung an.
-      </p>
-      <p>
-        Egal, ob es um eine allgemeine Fußpflege oder eine entspannende Fußmassage geht – ich sorge mit höchster Sorgfalt und Expertise dafür,
-        dass sich Ihre Füße rundum wohlfühlen.
-      </p>
-      <p>
-        Ich freue mich darauf, Sie bei der Pflege Ihrer Füße zu unterstützen. Vereinbaren Sie einen Termin und erleben Sie, wie angenehm
-        professionelle Fußpflege sein kann.
-      </p>
-    </div>
-  </section>
-
-  <!-- Impressum Section -->
-  <section id="impressum" class="section fade-in" style="display: none;">
-    <div class="impressum-section">
-      <h2>Impressum</h2>
-      <p>
-        Silva's Fußpflege<br>
-        Inhaberin: Silva Ajrian<br>
-        In der Bockelbach 17<br>
-        57223 Kreuztal<br>
-        Telefon: <a href="tel:015144906854">0151 44906854</a><br>
-        E-Mail: <a href="mailto:info@silvas-fusspflege.de">silva.ajrian80@googlemail.com</a>
-      </p>
-    </div>
+  <section class="about-section index-about fade-in">
+    <h2>Über mich</h2>
+    <p>
+      Ich bin Silva Ajrian, die Inhaberin von Silvas Fußpflege und eine dermatologisch geprüfte Fußpflegerin.
+      Mit meiner mobilen Fußpflege biete ich Ihnen individuelle Behandlungen direkt bei Ihnen zu Hause im Raum Kreuztal und Umgebung an.
+    </p>
+    <p>
+      Egal, ob es um eine allgemeine Fußpflege oder eine entspannende Fußmassage geht – ich sorge mit höchster Sorgfalt und Expertise dafür,
+      dass sich Ihre Füße rundum wohlfühlen.
+    </p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Silva's Fußpflege</p>
+    <div class="footer-content">
+      <div>&copy; 2025 Silva's Fußpflege</div>
+      <div><a href="impressum.html">Impressum</a></div>
+    </div>
   </footer>
 
   <!-- JavaScript einbinden -->
   <script src="script.js"></script>
-  <!-- Inline Script zur Steuerung der mobilen Navigation -->
-  <script>
-    function toggleMobileNav() {
-      const nav = document.querySelector('.nav-menu');
-      nav.classList.toggle('nav-active');
-      
-      // Animation für Hamburger-Icon (X-Form)
-      const hamburger = document.querySelector('.hamburger');
-      hamburger.classList.toggle('active');
-      
-      // Verhindere Scrollen wenn Menü offen
-      document.body.classList.toggle('menu-open');
-    }
-    
-    function closeMobileNav() {
-      const nav = document.querySelector('.nav-menu');
-      nav.classList.remove('nav-active');
-      
-      const hamburger = document.querySelector('.hamburger');
-      hamburger.classList.remove('active');
-      
-      document.body.classList.remove('menu-open');
-    }
-    
-    // Bildladefehler-Behandlung
-    document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        img.addEventListener('error', function() {
-          if (!this.getAttribute('data-error-handled')) {
-            this.setAttribute('data-error-handled', 'true');
-            console.log('Bildfehler behandelt für: ' + this.src);
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>

@@ -33,7 +33,7 @@ main, .section {
 /* HEADER: Standardlayout, Desktop-Anpassung */
 header {
   background-color: #E2C8FE;
-  padding: 20px;
+  padding: 6px 0; /* Reduce vertical padding significantly */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ header {
   header {
     flex-direction: row;
     justify-content: center;
-    padding: 20px 40px;
+    padding: 6px 20px; /* Reduce vertical padding */
   }
   .nav-menu {
     display: flex !important;
@@ -56,9 +56,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0; /* Remove margin */
 }
 .logo-img {
-  max-width: 180px;
+  max-width: 220px; /* Increased logo size */
   width: 100%;
   height: auto;
 }
@@ -154,8 +155,8 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 50px; /* Mehr Platz nach unten */
-  margin-bottom: 20px;
+  padding-bottom: 20px; /* Reduced bottom padding */
+  margin-bottom: 10px; /* Reduced bottom margin */
 }
 .hero {
   display: flex;
@@ -228,7 +229,7 @@ nav a:hover {
 .silva-img {
   position: relative;
   z-index: 2;
-  max-width: 250px;
+  max-width: 320px; /* Increased image size */
   width: 100%;
   height: auto;
   border-radius: 8px;
@@ -260,6 +261,16 @@ nav a:hover {
     text-align: center;
     margin: 0; /* Konsistenter Abstand */
     border-radius: 10px;
+  }
+  .silva-img {
+    max-width: 280px; /* Larger on mobile too */
+  }
+  
+  #landing {
+    min-height: auto;
+    height: auto;
+    padding-bottom: 15px; /* Reduced padding on mobile */
+    margin-bottom: 30px; /* Reduced margin on mobile */
   }
 }
 
@@ -348,14 +359,14 @@ footer {
     height: 300px;
   }
   .silva-img {
-    max-width: 200px;
+    max-width: 280px; /* Larger on mobile too */
   }
   
   #landing {
     min-height: auto; /* Kein Mindesthöhe auf Mobilgeräten */
     height: auto;
-    padding-bottom: 30px;
-    margin-bottom: 60px; /* Mehr Abstand zum Footer */
+    padding-bottom: 15px; /* Reduced padding on mobile */
+    margin-bottom: 30px; /* Reduced margin on mobile */
   }
   
   main, .section {
@@ -382,10 +393,10 @@ footer {
     margin: 5px;
   }
   header {
-    padding: 15px;
+    padding: 8px; /* Further reduced padding on mobile */
   }
   .logo-img {
-    max-width: 150px;
+    max-width: 180px; /* Still larger than before, but appropriate for mobile */
   }
   .hero-text h2 {
     font-size: 1.8em;
@@ -405,6 +416,10 @@ footer {
   #landing {
     padding-bottom: 20px;
     margin-bottom: 40px;
+  }
+  
+  .silva-img {
+    max-width: 260px; /* Still larger than before */
   }
   
   footer {
